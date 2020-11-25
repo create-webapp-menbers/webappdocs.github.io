@@ -1,0 +1,50 @@
+site_name: My Docs
+
+nav :
+  - Home: index.md
+  - DevDocs:
+    - REST API: rest_api/rest_api.md
+
+theme:
+  name: material
+  palette:
+    primary: grey
+  language: ja
+  features:
+    - tabs
+  font:
+    text: Noto Sans JP
+
+markdown_extensions:
+  - admonition
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml
+
+extra_css:
+  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.css
+  - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js
