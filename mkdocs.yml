@@ -2,6 +2,7 @@ site_name: My Docs
 
 nav :
   - Home: index.md
+  - Repo: repository.md
   - DevDocs:
     - REST API: rest_api/rest_api.md
 
