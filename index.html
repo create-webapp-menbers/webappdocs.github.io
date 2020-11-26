@@ -206,70 +206,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
     <a href="." title="Home" class="md-nav__link md-nav__link--active">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    必須開発環境
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtualenv" class="md-nav__link">
-    virtualenv使用法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    依存関係
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mkdocs-commands" class="md-nav__link">
-    Mkdocs Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -345,51 +284,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    必須開発環境
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtualenv" class="md-nav__link">
-    virtualenv使用法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    依存関係
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mkdocs-commands" class="md-nav__link">
-    Mkdocs Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -404,14 +298,64 @@
                   
                 
                 
-                <h1 id="_1">このドキュメントについて</h1>
-<h2 id="_2">必須開発環境</h2>
-<ul>
+                <p><img alt="DRF" src="img/header_logo.png" /></p>
+<h1 id="_1">このドキュメントについて</h1>
+<p>Webアプリケーションを作成するにあたって得た技術を記録するドキュメントサイト
+このサイトは<a href="https://www.mkdocs.org">MkDocs</a>で制作しています。</p>
+<hr />
+<h1 id="_2">このドキュメントを編集するには</h1>
+<h2 id="_3">編集環境の構築</h2>
+<ol>
+<li>Python3をインストール <a href="https://www.python.org/">Python公式サイト</a>.  </li>
+<li>Gitをインストール <a href="https://git-scm.com/">Git公式サイト</a>.  </li>
 <li>
-<p>Python3がインストール済み <code>python3.8.2</code></p>
+<p>repositoryのクローン</p>
+<ul>
+<li>HTTPS ⇒ <code>git clone https://github.com/create-webapp-menbers/webappdocs.github.io.git</code></li>
+<li>SSH ⇒ <code>git clone git@github.com:create-webapp-menbers/webappdocs.github.io.git</code></li>
+</ul>
 </li>
 <li>
-<p>仮想環境のvirtualenvがインストール済み</p>
+<p>依存関係の一括インストール
+<div class="highlight"><pre><span></span><code>pip install -r requirements.txt
+</code></pre></div></p>
+</li>
+<li>サーバー起動
+<div class="highlight"><pre><span></span><code>mkdocs serve
+</code></pre></div>
+以下出力
+<div class="highlight"><pre><span></span><code>INFO    -  Building documentation... 
+INFO    -  Cleaning site directory 
+INFO    -  Documentation built in <span class="m">0</span>.22 seconds 
+<span class="o">[</span>I <span class="m">201126</span> <span class="m">22</span>:58:35 server:296<span class="o">]</span> Serving on http://127.0.0.1:8000
+INFO    -  Serving on http://127.0.0.1:8000
+<span class="o">[</span>I <span class="m">201126</span> <span class="m">22</span>:58:35 handlers:62<span class="o">]</span> Start watching changes
+INFO    -  Start watching changes
+<span class="o">[</span>I <span class="m">201126</span> <span class="m">22</span>:58:35 handlers:64<span class="o">]</span> Start detecting changes
+INFO    -  Start detecting changes
+</code></pre></div></li>
+<li><code>http://127.0.0.1:8001/</code>にアクセス</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>各編集方法については以下を参照</strong>  </p>
+<blockquote>
+<p><a href="https://www.mkdocs.org">MkDocs </a>.<br />
+<a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a>.<br />
+<a href="https://facelessuser.github.io/pymdown-extensions/">https://facelessuser.github.io/pymdown-extensions/</a></p>
+</blockquote>
+<p>ダイアグラム  </p>
+<blockquote>
+<p><a href="https://mermaid-js.github.io/mermaid/#/">https://mermaid-js.github.io/mermaid/#/</a></p>
+</blockquote>
+</div>
+<hr />
+<h1 id="_4">補足情報</h1>
+<h2 id="virtualenvpython">virtualenv(仮想Python環境)</h2>
+<p>Pythonの仮想環境があるとホストコンピューターのPython環境を汚すことなく開発ができる</p>
+<ul>
+<li>
+<p>仮想環境のvirtualenvをインストール</p>
 <blockquote>
 <ul>
 <li><code>sudo apt install virtualenv</code> - ubuntu(Linux) install <ul>
@@ -421,36 +365,30 @@
 </ul>
 </blockquote>
 </li>
-</ul>
-<h2 id="virtualenv">virtualenv使用法</h2>
-<ul>
-<li><code>virtualenv .env</code> - 仮想環境作成 rootディレクトり内でコマンド入力</li>
+<li>
+<p><code>virtualenv .env</code> - 仮想環境作成 rootディレクトり内でコマンド入力</p>
+</li>
 <li><code>source .env/bin/activate</code> - 仮想環境の有効化以下のように<code>(.env)</code>が付くと有効</li>
 </ul>
-<h2 id="_3">依存関係</h2>
+<h2 id="tips">依存関係についてのtips</h2>
+<p>Pythonの依存ライブラリを扱うためのコマンド</p>
 <ul>
 <li><code>pip install &lt;ライブラリ名&gt;</code> - 依存するライブラリのインストール</li>
-<li><code>pip install -r requirements.txt</code> - 依存するライブラリの一括インストール</li>
 <li><code>pip freeze &gt; requirements.txt</code> - 依存するライブラリのリストの出力</li>
 </ul>
-<h2 id="mkdocs-commands">Mkdocs Commands</h2>
+<h2 id="mkdocscommands">MkdocsのCommands</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><code>mkdocs new [dir-name]</code> - プロジェクトを新規作成</li>
+<li><code>mkdocs serve</code> - ドキュメントファイルが編集されると自動更新するサーバー起動</li>
+<li><code>mkdocs build</code> - HTMLを生成</li>
+<li><code>mkdocs -h</code> - MkDocsコマンドのヘルプ</li>
 </ul>
-<blockquote>
-<p>MkDocs <a href="https://www.mkdocs.org">mkdocs.org</a>.
-mkdocs-material <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a>.</p>
-</blockquote>
 <h2 id="project-layout">Project layout</h2>
 <pre><code>mkdocs.yml    # The configuration file.
 docs/
     index.md  # The documentation homepage.
     ...       # Other markdown pages, images and other files.
 </code></pre>
-<p><a href="https://facelessuser.github.io/pymdown-extensions/extensions/">https://facelessuser.github.io/pymdown-extensions/extensions/</a></p>
                 
               
               

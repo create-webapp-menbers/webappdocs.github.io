@@ -259,6 +259,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#branch" class="md-nav__link">
+    branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-action" class="md-nav__link">
+    GitHub Action ワークファイル
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -353,6 +367,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#branch" class="md-nav__link">
+    branch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-action" class="md-nav__link">
+    GitHub Action ワークファイル
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -388,6 +416,62 @@
 <ul>
 <li><code>git push --force &lt;remote&gt; &lt;branch&gt;</code> - 強制プッシュ</li>
 </ul>
+<h3 id="branch">branch</h3>
+<div class="mermaid">gitGraph:
+options
+{
+    "nodeSpacing": 150,
+    "nodeRadius": 10
+}
+end
+commit
+branch newbranch
+checkout newbranch
+commit
+commit
+checkout master
+commit
+commit</div>
+
+<h3 id="github-action">GitHub Action ワークファイル</h3>
+<div class="highlight"><pre><span></span><code>name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: &#39;3.6&#39;
+          architecture: &#39;x64&#39;
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles(&#39;**/requirements.txt&#39;) }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r ./requirements.txt
+      - run: mkdocs build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+</code></pre></div>
                 
               
               
