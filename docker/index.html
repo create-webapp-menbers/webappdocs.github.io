@@ -1,0 +1,1191 @@
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+    
+    
+      
+        <title>Docker - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#757575">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,400i,700%7C&display=fallback">
+        <style>body,input{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../rest_api/rest_api/" class="md-tabs__link">
+          DevDocs
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../repository/" title="Repo" class="md-nav__link">
+      Repo
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Docker
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Docker" class="md-nav__link md-nav__link--active">
+      Docker
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    よく使うコマンド
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コンテナの生成・起動
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    稼働中のコンテナ操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    イメージ操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    DockerFile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    Docker Hub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker本体の情報
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Dockerコンポーネント
+  </a>
+  
+    <nav class="md-nav" aria-label="Dockerコンポーネント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-enginedocker" class="md-nav__link">
+    Docker Engine（Dockerのコア機能）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-machinedocker" class="md-nav__link">
+    Docker Machine（Docker実行環境構築）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose_1" class="md-nav__link">
+    Docker Compose（複数コンテナの一元管理）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-swarm" class="md-nav__link">
+    Docker Swarm（クラスタ管理）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-kitematicdockergui" class="md-nav__link">
+    Docker Kitematic（DockerのGUIツール）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-registry" class="md-nav__link">
+    Docker Registry（イメージの公開・共有）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-hubdocker" class="md-nav__link">
+    Docker Hub（Docker公式のレジストリ）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      DevDocs
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="DevDocs" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        DevDocs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rest_api/rest_api/" title="REST API" class="md-nav__link">
+      REST API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    よく使うコマンド
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    コンテナの生成・起動
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    稼働中のコンテナ操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    イメージ操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    DockerFile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    Docker Hub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker本体の情報
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    Dockerコンポーネント
+  </a>
+  
+    <nav class="md-nav" aria-label="Dockerコンポーネント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-enginedocker" class="md-nav__link">
+    Docker Engine（Dockerのコア機能）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-machinedocker" class="md-nav__link">
+    Docker Machine（Docker実行環境構築）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose_1" class="md-nav__link">
+    Docker Compose（複数コンテナの一元管理）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-swarm" class="md-nav__link">
+    Docker Swarm（クラスタ管理）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-kitematicdockergui" class="md-nav__link">
+    Docker Kitematic（DockerのGUIツール）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-registry" class="md-nav__link">
+    Docker Registry（イメージの公開・共有）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-hubdocker" class="md-nav__link">
+    Docker Hub（Docker公式のレジストリ）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Docker</h1>
+                
+                <p>Rust + Linux(ubuntu)環境作成メモ</p>
+<p>前提条件
+Windows insider program に登録済みであること
+Windows buildバージョンが200x
+Windowsロゴ → 検索バー表示 → 「Winver」入力でビルドバージョンを確認できる。</p>
+<p>Dockerの使い方</p>
+<hr />
+<p>title: Docker コマンドチートシート
+tags: Docker docker-compose チートシート
+author: wMETAw
+slide: false</p>
+<hr />
+<h2 id="_1">よく使うコマンド</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 稼働中のコンテナに入る</span>
+$ docker-compose <span class="nb">exec</span> hoge_app bash
+
+<span class="c1"># stop</span>
+$ docker-compose stop
+
+<span class="c1"># docker-compose管理下のコンテナを削除し、紐づくボリュームも削除</span>
+$ docker-compose rm -v
+
+<span class="c1"># キャッシュを使わずにビルド</span>
+$ docker-compose build --no-cache
+
+<span class="c1"># コンテナを一括削除</span>
+$ docker rm <span class="sb">`</span>docker ps -a -q<span class="sb">`</span>
+
+<span class="c1"># 全てのボリュームを削除</span>
+$ docker volume rm <span class="k">$(</span>docker volume ls -qf <span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="k">)</span>
+
+<span class="c1"># イメージ一覧</span>
+$ docker images -a
+
+<span class="c1"># イメージ一括削除</span>
+$ docker rmi <span class="sb">`</span>docker images -aq<span class="sb">`</span>
+$ docker rmi -f <span class="sb">`</span>docker images -aq<span class="sb">`</span>
+
+<span class="c1"># docker images で REPOSITORY が &lt;none&gt; になっているものを削除（クライアントとデーモンAPIの両方がv1.25以降）</span>
+$ docker image prune
+
+<span class="c1"># docker images で REPOSITORY が &lt;none&gt; になっているものを削除（上記以下のバージョン）</span>
+$ docker rmi <span class="k">$(</span>docker images <span class="p">|</span> awk <span class="s1">&#39;/^&lt;none&gt;/ { print $3 }&#39;</span><span class="k">)</span>
+
+<span class="c1"># ホストからコンテナへファイルをコピー</span>
+<span class="c1"># docker cp &lt;コピーするファイルのパス&gt; &lt;コンテナ名or ID&gt;:&lt;コンテナ保存先パス&gt;</span>
+$ docker cp file.rc continername:/host/dir/ 
+
+<span class="c1"># コンテナからホストへファイルをコピー</span>
+<span class="c1"># docker cp  &lt;コンテナ名or ID&gt;:&lt;コピーするファイルのパス&gt; &lt;ホスト保存先パス&gt;</span>
+$ docker cp  continer_name:/var/www/html/ /User/meta/hoge 
+</code></pre></div>
+
+<h2 id="_2">コンテナの生成・起動</h2>
+<p><code>$ docker run [オプション] [イメージ名:タグ名] [引数]</code></p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--name</td>
+<td>コンテナ名を指定</td>
+<td>docker run --name "test" centos</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>バッググラウンド実行</td>
+<td>docker run -d centos</td>
+</tr>
+<tr>
+<td>-it</td>
+<td>コンソールに結果を出力</td>
+<td>docker run -it --name "test" centos /bin/cal</td>
+</tr>
+<tr>
+<td>-p host:cont</td>
+<td>ポートフォワーディング</td>
+<td>docker run -d -p 8080:80 httpd</td>
+</tr>
+<tr>
+<td>--add-host</td>
+<td>ホスト名とIPを指定</td>
+<td>docker run -it --add-host=test.com:192.168.1.1 centos</td>
+</tr>
+<tr>
+<td>--dns</td>
+<td>DNSサーバを指定</td>
+<td>docker run --dns=192.168.1.1 httpd</td>
+</tr>
+<tr>
+<td>--mac-address</td>
+<td>MACアドレスを指定</td>
+<td>docker run -it --mac-address="92:d0..." centos</td>
+</tr>
+<tr>
+<td>--cpu-shares</td>
+<td>CPU配分 (全体で1024)</td>
+<td>docker run --cpu-shares=512 centos</td>
+</tr>
+<tr>
+<td>--memory</td>
+<td>メモリの上限</td>
+<td>docker run --memory=512m centos</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>ディレクトリの共有</td>
+<td>docker run -v /c/Users/src:/var/www/html httpd</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>環境変数を設定</td>
+<td>docker run -it -e foo=bar centos /bin/bash</td>
+</tr>
+<tr>
+<td>--env-file</td>
+<td>環境変数リストから設定</td>
+<td>docker run -it --env-file=env_list centos /bin/bash</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>作業ディレクトリを指定</td>
+<td>docker run -it -w=/tmp/work centos /bin/bash</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">稼働中のコンテナ操作</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+<th>例(コンテナID=CID)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>コンテナ一覧</td>
+<td>docker ps [オプション]</td>
+<td>docker ps</td>
+</tr>
+<tr>
+<td>コンテナ確認</td>
+<td>docker stats コンテナID</td>
+<td>docker stats CID</td>
+</tr>
+<tr>
+<td>コンテナ起動</td>
+<td>docker start [オプション] コンテナID</td>
+<td>docker start CID</td>
+</tr>
+<tr>
+<td>コンテナ停止</td>
+<td>docker stop [オプション] コンテナID</td>
+<td>docker stop CID</td>
+</tr>
+<tr>
+<td>コンテナ再起動</td>
+<td>docker restart [オプション] コンテナID</td>
+<td>docker restart CID</td>
+</tr>
+<tr>
+<td>コンテナ削除</td>
+<td>docker rm [オプション] コンテナID</td>
+<td>docker rm CID</td>
+</tr>
+<tr>
+<td>コンテナ中断</td>
+<td>docker pause コンテナID</td>
+<td>docker pause CID</td>
+</tr>
+<tr>
+<td>コンテナ再開</td>
+<td>docker unpause コンテナID</td>
+<td>docker unpause CID</td>
+</tr>
+<tr>
+<td>コンテナ接続</td>
+<td>docker attach コンテナID</td>
+<td>docker attach CID</td>
+</tr>
+<tr>
+<td>コンテナログ</td>
+<td>docker logs [オプション] コンテナID</td>
+<td>docker logs CID</td>
+</tr>
+<tr>
+<td>プロセス実行</td>
+<td>docker exec [オプション] コンテナID コマンド [引数]</td>
+<td>docker exec -it CID /bin/cal</td>
+</tr>
+<tr>
+<td>プロセス確認</td>
+<td>docker top コンテナID</td>
+<td>docker top CID</td>
+</tr>
+<tr>
+<td>ポート確認</td>
+<td>docker port コンテナID</td>
+<td>docker port CID</td>
+</tr>
+<tr>
+<td>コンテナ名変更</td>
+<td>docker rename 現在名 新しいコンテナ名</td>
+<td>docker rename now new</td>
+</tr>
+<tr>
+<td>イメージ差分</td>
+<td>docker diff コンテナID</td>
+<td>docker diff CID</td>
+</tr>
+<tr>
+<td>ファイルコピー</td>
+<td>docker cp コンテナID:ファイル パス</td>
+<td>docker cp CID:/var/www/a.txt /Users/ryo/</td>
+</tr>
+<tr>
+<td>イメージの作成</td>
+<td>docker commit [オプション] コンテナID イメージ名[:タグ名]</td>
+<td>docker commit CID my_image:1.0</td>
+</tr>
+<tr>
+<td>イメージを.tarへ出力</td>
+<td>docker export コンテナID</td>
+<td>docker export CID</td>
+</tr>
+<tr>
+<td>.tarからイメージ作成</td>
+<td>docker import パスorURL - イメージ名[:タグ名]</td>
+<td>cat src.tar｜docker import - web:1.0</td>
+</tr>
+<tr>
+<td>イメージ保存</td>
+<td>docker save [オプション] 保存ファイル名 [イメージ名]</td>
+<td>docker save -o src.tar web</td>
+</tr>
+<tr>
+<td>イメージロード</td>
+<td>docker load [オプション]</td>
+<td>docker load -i sec.tar</td>
+</tr>
+</tbody>
+</table>
+<p>補足
+・ コンテナIDはコンテナ名でも可
+・ <code>docker ps</code>は稼働中のコンテナ一覧。 <code>docker ps -a</code>は停止中を含めた全コンテナ一覧</p>
+<p>【小技】</p>
+<div class="highlight"><pre><span></span><code># 古いコンテナを一括削除
+docker ps -a | grep &#39;weeks ago&#39; | awk &#39;{print $1}&#39; | xargs docker rm
+
+# コンテナを一括削除
+docker rm `docker ps -a -q`
+</code></pre></div>
+
+<h2 id="_4">イメージ操作</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+<th>例(イメージID=IID)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pull</td>
+<td>docker pull [オプション] イメージ名[:タグ]</td>
+<td>docker pull centos:7</td>
+</tr>
+<tr>
+<td>一覧</td>
+<td>docker images [オプション] [リポジトリ名]</td>
+<td>docker images -a</td>
+</tr>
+<tr>
+<td>詳細</td>
+<td>docker inspect [オプション] [イメージID]</td>
+<td>docker inspect IID</td>
+</tr>
+<tr>
+<td>検索</td>
+<td>docker search [オプション] [キーワード]</td>
+<td>docker search nginx</td>
+</tr>
+<tr>
+<td>削除</td>
+<td>docker rmi [オプション] イメージ名</td>
+<td>docker rmi nginx</td>
+</tr>
+<tr>
+<td>ログ</td>
+<td>docker logs [オプション] イメージ名</td>
+<td>docker logs nginx</td>
+</tr>
+<tr>
+<td>タグ変更</td>
+<td>docker tag [イメージID] [リポジトリ名]:[タグ]</td>
+<td>docker tag IID hello-world:new_tag</td>
+</tr>
+</tbody>
+</table>
+<p>【小技】</p>
+<div class="highlight"><pre><span></span><code># イメージの一括削除
+docker rmi `docker images -q`
+</code></pre></div>
+
+<h2 id="docker-compose">Docker Compose</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>コンテナ生成・起動</td>
+<td>docker-compose up [オプション] [サービス]</td>
+<td>docker-compose up -d</td>
+</tr>
+<tr>
+<td>生成コンテナ数</td>
+<td>docker-compose scale [サービス=数]</td>
+<td>docker-compose scale web=10</td>
+</tr>
+<tr>
+<td>コンテナ一覧</td>
+<td>docker-compose ps [オプション]</td>
+<td>docker-compose ps</td>
+</tr>
+<tr>
+<td>コンテナログ</td>
+<td>docker-compose logs [オプション] [サービス]</td>
+<td>docker-compose logs</td>
+</tr>
+<tr>
+<td>コマンド実行</td>
+<td>docker-compose run [オプション] [サービス] [コマンド]</td>
+<td>docker-compose run web /bin/cal</td>
+</tr>
+<tr>
+<td>全コンテナ起動</td>
+<td>docker-compose start [サービス]</td>
+<td>docker-compose start</td>
+</tr>
+<tr>
+<td>全コンテナ再起動</td>
+<td>docker-compose restart [オプション] [サービス]</td>
+<td>docker-compose restart</td>
+</tr>
+<tr>
+<td>全コンテナ強制停止</td>
+<td>docker-compose kill [オプション] [サービス]</td>
+<td>docker-compose kill</td>
+</tr>
+<tr>
+<td>全コンテナ削除</td>
+<td>docker-compose rm [オプション] [サービス]</td>
+<td>docker-compose rm</td>
+</tr>
+<tr>
+<td>全コンテナをビルド</td>
+<td>docker-compose build [オプション]</td>
+<td>docker-compose build --no-cache</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dockerfile">DockerFile</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>元となるイメージ</td>
+<td>FROM</td>
+<td><code>FROM name/web:ver1.0</code></td>
+</tr>
+<tr>
+<td>作成者</td>
+<td>MAINTAINER</td>
+<td><code>MAINTAINER name</code></td>
+</tr>
+<tr>
+<td>環境変数</td>
+<td>ENV</td>
+<td>ENV KEY=VALUE</td>
+</tr>
+<tr>
+<td>指定のコマンドの実行</td>
+<td>RUN</td>
+<td><code>RUN yum -y install httpd</code></td>
+</tr>
+<tr>
+<td>イメージにファイル追加</td>
+<td>ADD</td>
+<td><code>ADD index.html /var/www/html/index.html</code></td>
+</tr>
+<tr>
+<td>ポート番号を指定</td>
+<td>EXPOSE</td>
+<td>EXPOSE 3306</td>
+</tr>
+<tr>
+<td>コンテナ起動時に実行するコマンド</td>
+<td>CMD</td>
+<td>CMD ["service","httpd","start"]</td>
+</tr>
+<tr>
+<td>カレントディレクトリを指定</td>
+<td>WORKDIR</td>
+<td>WORKDIR /var/www/html</td>
+</tr>
+<tr>
+<td>ボリューム指定</td>
+<td>VOLUME</td>
+<td>VOLUME /var/log/httpd</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>DockerFileは<code>命令 オプション</code>形式の行の羅列で構成される</li>
+<li><code>#</code>でコメント</li>
+<li>Dockerfileは<code>build</code>サブコマンドでのビルド時に利用される</li>
+<li>Dockerのビルドは、コマンド単位をステップとして実行する</li>
+<li>各ステップはコンテナのスナップショットをキャッシュする</li>
+<li>Dockerfileを部分変更した場合は、その差分のみが実行される</li>
+</ul>
+<h2 id="docker-hub">Docker Hub</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ログイン</td>
+<td>docker login [オプション] [サーバー]</td>
+<td>docker login -u "name" -p "pass"</td>
+</tr>
+<tr>
+<td>ログアウト</td>
+<td>docker logout [サーバ名]</td>
+<td>docker logout</td>
+</tr>
+<tr>
+<td>アップロード</td>
+<td>docker push ユーザ名/イメージ名[:タグ名]</td>
+<td>docker push user/my_image:v1.0</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># Dockerhubへログイン</span>
+    docker login -u <span class="s2">&quot;name&quot;</span> -p <span class="s2">&quot;pass&quot;</span>
+
+    <span class="c1"># カレントディレクトリのDockerfileからイメージを作成 </span>
+    <span class="c1"># docker build -t ユーザー名/イメージ名:タグ名 .</span>
+    docker build -t wmetaw/mylinux:1.0 .
+
+    <span class="c1"># Dockerhubへpush</span>
+    docker push wmetaw/mylinux:1.0
+</code></pre></div>
+
+<h2 id="docker">Docker本体の情報</h2>
+<table>
+<thead>
+<tr>
+<th>説明</th>
+<th>コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>バージョン確認</td>
+<td>docker version</td>
+</tr>
+<tr>
+<td>実行環境確認</td>
+<td>docker info</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker_1">Dockerコンポーネント</h2>
+<p>Dockerはコア機能を提供する「Docker Engine」を中心に「イメージの作成→公開→コンテナ実行」を行うためのコンポーネント（部品）が提供されています
+主なコンポーネントは次の通り</p>
+<hr>
+
+<h4 id="docker-enginedocker"><strong>Docker Engine（Dockerのコア機能）</strong></h4>
+<p>Docker イメージの生成やコンテナの軌道などを行うためのコア機能
+Dockerコマンドの実行やDockerFileによるイメージの生成を行う
+<br><hr></p>
+<h4 id="docker-machinedocker"><strong>Docker Machine（Docker実行環境構築）</strong></h4>
+<p>VirtualBoxをはじめ、AWSやAZUREなどのクラウド環境などにDockerの実行環境をコマンドで自動生成するツール
+<br><hr></p>
+<h4 id="docker-compose_1"><strong>Docker Compose（複数コンテナの一元管理）</strong></h4>
+<p>複数コンテナの構成情報をコードで定義して、コマンドを実行することでアプリケーションの実行環境を構成するコンテナ群を一元管理するためのツール
+<br><hr></p>
+<h4 id="docker-swarm"><strong>Docker Swarm（クラスタ管理）</strong></h4>
+<p>Docker Swarmは複数のホストをクラスタ化するためのツール
+クラスタの管理やAPIの提供を行う役割が「Manager」、Dockerコンテナを実行する役割が「Node」という
+<br><hr></p>
+<h4 id="docker-kitematicdockergui"><strong>Docker Kitematic（DockerのGUIツール）</strong></h4>
+<p>Dockerイメージの生成やコンテナの起動などを行うためのGUIツール
+グラフィカルなUIなので非エンジニアの方に最適
+<br><hr></p>
+<h4 id="docker-registry"><strong>Docker Registry（イメージの公開・共有）</strong></h4>
+<p>コンテナの元となるイメージを公開・共有する為のレジストリ機能
+Docker公式のレジストリサービスであるDocker Hubもこの機能を使用している
+<br><hr></p>
+<h4 id="docker-hubdocker"><strong><a href="https://hub.docker.com/">Docker Hub</a>（Docker公式のレジストリ）</strong></h4>
+<p>CentOS・nginxなどの公式イメージはこのレジストリから取得する
+publicなので多くのユーザーによる自作のイメージが公開されている</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../repository/" title="Repo" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                Repo
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../rest_api/rest_api/" title="REST API" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                REST API
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
