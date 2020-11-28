@@ -10,3 +10,12 @@ https://www.django-rest-framework.org/
 
 !!! note
     ![DRF](img/DRF_act.png)
+
+```python
+django-admin startproject <project_name>
+```
+
+```python
+python manage.py startapp snippets
+```
+
